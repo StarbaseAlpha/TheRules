@@ -1,0 +1,27 @@
+{
+  "name": "@starbase/therules",
+  "version": "0.0.1",
+  "description": "Starbase Rules Engine",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mike Fuller",
+  "license": "MIT",
+  "keywords": [
+    "starbase",
+    "rules",
+    "engine",
+    "api",
+    "rule",
+    "gateway"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/starbasealpha/therules.git"
+  },
+  "bugs": {
+    "url": "https://github.com/starbasealpha/therules/issues"
+  },
+  "homepage": "https://github.com/starbasealpha/therules#readme"
+}
