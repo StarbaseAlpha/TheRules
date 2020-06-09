@@ -7,12 +7,12 @@ var rules = [
   {
 	  "path":"/test",
     "rules":{
-      "list":(req,kit,params) => {
-        return (req.data.limit <= 10);
+      "list":(body,kit,params) => {
+        return (body.data.limit <= 10);
       },
     },
     "methods":{
-      "list":(req,kit,params) => {
+      "list":(body,kit,params) => {
         return "In theory, a list of results via promise.";
       }
     }
@@ -21,19 +21,19 @@ var rules = [
   {
     "path":"/:channel/:id",
     "rules":{
-      "write":(req,kit,params) => {
+      "write":(body,kit,params) => {
         console.log("Params:", params);
-        console.log("Request:", req);
-        return typeof req.data === 'object' &&
-          Object.keys(req.data).length === 1 &&
-          req.data.message &&
-          typeof req.data.message === 'string' &&
-          req.data.message.length > 0 &&
-          req.data.message.length <= 1024;
+        console.log("Request:", body);
+        return typeof body.data === 'object' &&
+          Object.keys(body.data).length === 1 &&
+          body.data.message &&
+          typeof body.data.message === 'string' &&
+          body.data.message.length > 0 &&
+          body.data.message.length <= 1024;
       }
     },
     "methods":{
-      "write":(req,kit,params) => {
+      "write":(body,kit,params) => {
         return "The data would be written now. This is " + kit.tool;
       }
     }

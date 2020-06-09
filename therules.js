@@ -1,6 +1,6 @@
 'use strict';
 
-function theRules(rules=[],request={},kit={}) {
+function theRules(rules=[],body={},kit={}) {
   return new Promise((resolve,reject)=>{
     const TestPath = (rulePath,testPath) => {
       let rule = (rulePath||"").toString().replace(/^\/|\/$/g,'').split('/');
@@ -21,8 +21,8 @@ function theRules(rules=[],request={},kit={}) {
       }
       return params;
     };
-    let method = request.method || null;
-    let path = (request.path || '/').toString();
+    let method = body.method || null;
+    let path = (body.path || '/').toString();
     let tests = [];
 
     if (rules && typeof rules === 'object' && !rules.forEach) {
@@ -44,7 +44,7 @@ function theRules(rules=[],request={},kit={}) {
     if (tests.length > 0) {
       let promises = [];
       tests.forEach(test=>{
-        promises.push(test.test(request,kit,test.params));
+        promises.push(test.test(body,kit,test.params));
       });
       Promise.all(promises).then(results=>{
         let ok = false;
@@ -55,7 +55,7 @@ function theRules(rules=[],request={},kit={}) {
           }
         }
         if (ok && ok.method) {
-          resolve(ok.method(request,kit,ok.params));
+          resolve(ok.method(body,kit,ok.params));
         } else {
           if (ok && !ok.method) {
             return reject({"code":400,"message":"Missing Methods."});
