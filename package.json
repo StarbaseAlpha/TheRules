@@ -1,6 +1,6 @@
 {
   "name": "@starbase/therules",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Starbase Rules Engine",
   "main": "index.js",
   "scripts": {
@@ -11,10 +11,9 @@
   "keywords": [
     "starbase",
     "rules",
-    "engine",
-    "api",
     "rule",
-    "gateway"
+    "engine",
+    "api"
   ],
   "repository": {
     "type": "git",
